@@ -1,11 +1,14 @@
 .menu {
   background: green;
   color: white;
-  padding:3rem;
-  margin:3.1rem;
+  width:100%;
+  display:inline-flex;
+  padding:0;
+
   &--item {
     list-style-type: none;
     font-size: 30px;
-    font-family:'LibreBaskerville-Regular';
+    font-family: 'LibreBaskerville-Regular';
+    padding:2rem;
   }
 }

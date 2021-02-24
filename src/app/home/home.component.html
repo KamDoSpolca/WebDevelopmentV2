@@ -1,4 +1,19 @@
+<br />
 HOME COMPONENT
-
-
 ( tu najdete info o nasej stranke ...)
+<br />
+<button (click)="onAddFruit()" style="margin-left:4rem;">Add fruit</button>
+<button (click)="onRemoveFruit()" style="margin-left:4rem;">Remove fruit</button>
+
+<div style="margin-left:4rem;">
+  <h3> List of Fruits : </h3>
+  <p *ngFor="let fruit of fruits">{{ fruit }}</p>
+
+</div>
+
+
+<div style="margin:4rem;">
+  <h3> List of names : </h3>
+  <p *ngFor="let item of items">{{ item.name }}</p>
+
+</div>
