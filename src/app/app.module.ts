@@ -8,6 +8,7 @@ import { MapComponent } from './Map/map.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HikingComponent } from './hiking/hiking.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MapComponent,
     ContactsComponent,
+    HikingComponent,
     NotFoundComponent
   ],
   imports: [
