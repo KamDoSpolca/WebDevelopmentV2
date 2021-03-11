@@ -1,14 +1,54 @@
+.page {
+  margin: 0 120px;
+  border: 1px solid black;
+  display: block;
+}
+
+
+.section--header {
+  display: block;
+  padding: 1px;
+  background-color: #EAEDF0;
+}
+
+.section--menu {
+
+}
+
+.illustration {
+  width: 100%;
+}
+
+.section--content {
+  background: #EAEDF0;
+  height: auto;
+  overflow:auto;
+}
+
 .menu {
   background: green;
   color: white;
-  width:100%;
-  display:inline-flex;
-  padding:0;
+  width: 100%;
+  display: inline-flex;
+  padding: 0;
+
 
   &--item {
+    overflow: auto;
     list-style-type: none;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'LibreBaskerville-Regular';
-    padding:2rem;
+    padding: 5px 30px;
   }
+}
+
+.section--menu ul {
+  margin: 0;
+}
+
+.section--footer {
+  border: 1px solid black;
+  background: #EAEDF0;
+  height: 200px;
+  overflow: auto;
 }

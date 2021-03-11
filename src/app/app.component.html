@@ -1,13 +1,32 @@
 
+<div class="page">
 
-<h1>Hiking Club</h1>
-<ul class="menu">
-  <li class="menu--item" routerLink="home">Home</li>
-  <li class="menu--item" routerLink="map">Map</li>
-  <li class="menu--item" routerLink="about">About</li>
-  <li class="menu--item" routerLink="hiking">Hiking</li>
-  <li class="menu--item" routerLink="contacts">Contacts</li>
-</ul>
+  <div class="section--header">
+    <img class='illustration' src="https://sacr3-files.s3-eu-west-1.amazonaws.com/_processed_/csm_tatry%2520panorama_d95b968157.jpg" style='max-width: 1200px'>
 
-<router-outlet></router-outlet>
 
+  </div>
+  <div class="section--menu">
+
+    <ul class="menu">
+      <li class="menu--item" routerLink="home">Home</li>
+      <li class="menu--item" routerLink="map">Map</li>
+      <li class="menu--item" routerLink="about">About</li>
+      <li class="menu--item" routerLink="hiking">Hiking</li>
+      <li class="menu--item" routerLink="contacts">Contacts</li>
+    </ul>
+
+  </div>
+
+
+  <div class="section--content">
+    <p>CONTENT</p>
+    <router-outlet></router-outlet>
+</div>
+
+  <div class="section--footer">
+    <p>FOOT</p>
+  </div>
+
+
+</div>
