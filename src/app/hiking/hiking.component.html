@@ -2,21 +2,20 @@ HIKING
 
 
 
-  <div class="filter">
-    <ul>
-      <li> Vysoké Tatry </li>
-      <li> Nízke Tatry </li>
-      <li> Slovenský Raj </li>
-    </ul>
+<div class="filter">
+  <ul>
+    <li> Vysoké Tatry </li>
+    <li> Nízke Tatry </li>
+    <li> Slovenský Raj </li>
+  </ul>
+</div>
+
+
+
+<div *ngFor="let item of hiking" class="item">
+  <h2>{{item.title}}</h2>
+  <div class="row">
+    <!--<img class="col-md-3 img" src=" https://kamnahory.sk/images/stories/Tatry/800x600/Slavkovsy_stit.jpg" /><br />-->
+    <!--<span class="col-md-8">{{item.info}}</span>-->
   </div>
-
-
-
-  <div *ngFor="let item of hiking" class="item">
-    <h2>{{item.title}}</h2>
-    <div class="row" style="margin:0">
-      <img class="col-md-3 img" src=" https://kamnahory.sk/images/stories/Tatry/800x600/Slavkovsy_stit.jpg" /><br />
-      <span class="col-md-8">{{item.info}}</span>
-    </div>
-  </div>
-
+</div>

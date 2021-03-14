@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: 'hiking', component: HikingComponent},
+  { path: 'hiking', component: HikingComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
 

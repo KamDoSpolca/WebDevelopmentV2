@@ -1,32 +1,36 @@
 
-<div class="page">
+<div class="container">
 
-  <div class="section--header">
-    <img class='illustration' src="https://sacr3-files.s3-eu-west-1.amazonaws.com/_processed_/csm_tatry%2520panorama_d95b968157.jpg" style='max-width: 1200px'>
+  <div class="page">
+
+    <div class="section--header">
+      <p class="text showcase-text">"Beda, kto v mori vidí iba vodu, kto nepočuje nemú prírodu, kto v skalách vidí iba skaly." A.Sládkovič</p>
+      <img class='illustration' src="https://sacr3-files.s3-eu-west-1.amazonaws.com/_processed_/csm_tatry%2520panorama_d95b968157.jpg">
+
+    </div>
+
+    <div class="section--menu">
+
+      <ul class="menu">
+        <li class="menu--item" routerLink="home">Home</li>
+        <li class="menu--item" routerLink="map">Map</li>
+        <li class="menu--item" routerLink="about">About</li>
+        <li class="menu--item" routerLink="hiking">Hiking</li>
+        <li class="menu--item" routerLink="contacts">Contacts</li>
+      </ul>
+
+    </div>
+
+
+    <div class="section--content">
+
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="section--footer">
+      <p>FOOT</p>
+    </div>
 
 
   </div>
-  <div class="section--menu">
-
-    <ul class="menu">
-      <li class="menu--item" routerLink="home">Home</li>
-      <li class="menu--item" routerLink="map">Map</li>
-      <li class="menu--item" routerLink="about">About</li>
-      <li class="menu--item" routerLink="hiking">Hiking</li>
-      <li class="menu--item" routerLink="contacts">Contacts</li>
-    </ul>
-
-  </div>
-
-
-  <div class="section--content">
-    <p>CONTENT</p>
-    <router-outlet></router-outlet>
-</div>
-
-  <div class="section--footer">
-    <p>FOOT</p>
-  </div>
-
-
 </div>
