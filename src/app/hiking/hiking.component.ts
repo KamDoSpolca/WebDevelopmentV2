@@ -10,6 +10,6 @@ import { Component } from "@angular/core";
 })
 
 export class HikingComponent {
-hiking=[{title:"Slavkovský štít ",info:"Velmi zaujimava tura"},{title:"Krivaň"}];
+  hiking = [{ title: "Slavkovský štít ", info: "Velmi zaujimava tura" }];
 
 }
