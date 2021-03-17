@@ -3,18 +3,16 @@ HIKING
 
 
 <div class="filter">
-  <ul>
-    <li> Vysoké Tatry </li>
-    <li> Nízke Tatry </li>
-    <li> Slovenský Raj </li>
-  </ul>
+  <select (change)="locationFilterChange($event)">
+    <option *ngFor="let item of locationFilter">{{item}}</option>   
+  </select>
 </div>
 
 
 <div class="container--content mx-4">
 
 
-  <div *ngFor="let item of hiking" class="item">
+  <div *ngFor="let item of filteredHiking" class="item">
 
     
        <div class="p-2">
