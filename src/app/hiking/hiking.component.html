@@ -16,19 +16,15 @@ HIKING
 
   <div *ngFor="let item of hiking" class="item">
 
+    
+       <div class="p-2">
+        <h4>{{item.title}} </h4>
+        <img src="{{item.image}}" width="300" height="250" />
+        <h6>{{item.info}} </h6>
+      </div>
+ 
 
-    <div class="d-flex flex-row">
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /> </div>
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /></div>
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /></div>
-    </div>
 
-
-    <div class="d-flex flex-row">
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /> </div>
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /></div>
-      <div class="p-2"><h4>{{item.title}} </h4> <img src="./assets/img.jpg" width="300" height="250" /></div>
-    </div>
 
 
 
