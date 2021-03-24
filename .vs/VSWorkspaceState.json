@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\contacts",
+    "\\src\\app\\hiking",
+    "\\src\\app\\home",
+    "\\src\\app\\map",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\hiking\\hiking.component.ts",
+  "PreviewInSolutionExplorer": false
+}

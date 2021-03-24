@@ -4,36 +4,33 @@ HIKING
 
 <div class="filter">
   <select (change)="locationFilterChange($event)">
-    <option *ngFor="let item of locationFilter">{{item}}</option>   
+    <option *ngFor="let item of locationFilter">{{item}}</option>
   </select>
 </div>
 
 
-<div class="container--content mx-4">
+<div class="container--content mx-4 ">
 
 
-  <div *ngFor="let item of filteredHiking" class="item">
+  <div *ngFor="let item of filteredHiking " class="item">
 
-    
-       <div class="p-2">
-        <h4>{{item.title}} </h4>
-        <img src="{{item.image}}" width="300" height="250" />
-        <h6>{{item.info}} </h6>
+
+    <div class="attraction-preview p-2">
+      <img src="{{item.image}}" width="250" height="200" style="border-radius:12px" />
+
+      <div class="describe p-2">
+        <h5>{{item.title}} </h5>
+        <p>{{item.info}} </p>
+        <div style="display:flex">
+          <img src="https://svgsilh.com/svg/1093167.svg" width="15" height="20">
+          <span>{{item.point}}</span>
+        </div>
       </div>
- 
 
-
+    </div>
 
 
 
   </div>
 </div>
-
-
-
-
-
-
-
-
 
