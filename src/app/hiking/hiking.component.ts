@@ -19,7 +19,7 @@ export class HikingComponent implements OnInit {
 
 
   locationFilter = [
-    "Všetko", "Vysoké Tatry", "Slovenský Raj", "Nízke Tatry"
+
   ];
 
   filteredHiking = [];
@@ -28,9 +28,16 @@ export class HikingComponent implements OnInit {
     this._http.get('http://localhost:3000/hiking/list')
       .subscribe((response: any) => {
         this.filteredHiking = response;
+        this.hiking = response;
 
       })
 
+
+    this._http.get('http://localhost:3000/hiking/location')
+      .subscribe((response: any) => {
+        this.locationFilter = response;
+
+      })
   }
 
   locationFilterChange(event) {
