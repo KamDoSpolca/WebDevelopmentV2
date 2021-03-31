@@ -9,6 +9,6 @@ import { Component } from "@angular/core";
   styleUrls: ['./attraction.component.scss']
 })
 
-export class ContactsComponent {
+export class AttractionComponent {
 
 }
