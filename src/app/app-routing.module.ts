@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AttractionComponent } from './hiking/attraction/attraction.component';
 import { HikingComponent } from './hiking/hiking.component';
 import { HomeComponent } from './Home/home.component';
 import { MapComponent } from './Map/map.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'hiking', component: HikingComponent },
+  { path: 'hiking/:id', component: AttractionComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
 

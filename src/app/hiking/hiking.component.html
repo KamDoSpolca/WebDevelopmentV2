@@ -12,7 +12,7 @@ HIKING
 <div class="container--content mx-4 ">
 
 
-  <div *ngFor="let item of filteredHiking " class="item">
+  <div *ngFor="let item of filteredHiking " class="item" (click)="onOpenAttraction(item.id)">
 
 
     <div class="attraction-preview p-2">

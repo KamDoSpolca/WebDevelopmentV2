@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
 
 
 
@@ -9,6 +10,15 @@ import { Component } from "@angular/core";
   styleUrls: ['./attraction.component.scss']
 })
 
-export class AttractionComponent {
+export class AttractionComponent implements OnInit{
+    constructor(
+    private _http: HttpClient,
+     ) { }
+  ngOnInit() {
+    this._http.get('http://localhost:3000/hiking/list')
+      .subscribe((response: any) => {
+        alert(response)  
 
+      })
+  }
 }

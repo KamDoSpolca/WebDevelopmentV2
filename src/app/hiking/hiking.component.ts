@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +13,8 @@ import { Component, OnInit } from "@angular/core";
 
 export class HikingComponent implements OnInit {
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _router: Router  
   ) { }
 
   hiking = [];
@@ -48,7 +50,9 @@ export class HikingComponent implements OnInit {
     }
   }
 
-
+  onOpenAttraction(id) {
+    this._router.navigate(["/hiking/", id]);
+  }
 
 }
 
