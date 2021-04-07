@@ -10,14 +10,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ['./attraction.component.scss']
 })
 
-export class AttractionComponent implements OnInit{
-    constructor(
+export class AttractionComponent implements OnInit {
+  constructor(
     private _http: HttpClient,
-     ) { }
+  ) { }
   ngOnInit() {
-    this._http.get('http://localhost:3000/hiking/list')
+    this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
-        alert(response)  
+        //alert(response)  
 
       })
   }

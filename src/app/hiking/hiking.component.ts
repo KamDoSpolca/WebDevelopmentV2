@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+
 
 
 
@@ -14,7 +16,7 @@ import { Router } from '@angular/router';
 export class HikingComponent implements OnInit {
   constructor(
     private _http: HttpClient,
-    private _router: Router  
+    private _router: Router
   ) { }
 
   hiking = [];
@@ -27,7 +29,7 @@ export class HikingComponent implements OnInit {
   filteredHiking = [];
 
   ngOnInit() {
-    this._http.get('http://localhost:3000/hiking/list')
+    this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
         this.filteredHiking = response;
         this.hiking = response;
@@ -35,7 +37,7 @@ export class HikingComponent implements OnInit {
       })
 
 
-    this._http.get('http://localhost:3000/hiking/location')
+    this._http.get(environment.backend + '/hiking/location')
       .subscribe((response: any) => {
         this.locationFilter = response;
 
