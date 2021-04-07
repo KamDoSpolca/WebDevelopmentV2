@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AttractionComponent } from './hiking/attraction/attraction.component';
 import { HikingComponent } from './hiking/hiking.component';
-import { HomeComponent } from './Home/home.component';
-import { MapComponent } from './Map/map.component';
+import { HomeComponent } from './home/home.component';
+import { MapComponent } from './map/map.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
