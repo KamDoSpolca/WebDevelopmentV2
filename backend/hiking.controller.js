@@ -1,11 +1,17 @@
+const mongoose = require("mongoose");
+const hikingModel = require("./hiking.model");
+
+
 exports.getHikingList = (req, res) => {
-  res.send([
-    { title: "Slavkovský štít ", info: "Velmi zaujimava tura", image: "./assets/img.jpg", location: "Vysoké Tatry", point: "Starý Smokovec", info2: "Celodenna tura s moznostou spojit prijemne s uzitocnym", id: 1111 },
-    { title: "Krivan ", info: "Narocny stit", image: "http://www.severovychod.sk/content/images/8/8874_full.jpg", location: "Slovenský Raj", point: "Štrbské pleso", id: 2222 },
-    { title: "Gerlachovsky stit ", info: "Najvyssi stit", image: "https://ipravda.sk/res/2014/08/12/thumbs/gerlachovsky-stit-clanokW.jpg", location: "Nízke Tatry", point: "Veľká Lesná", id: 3333 }
+  //res.send([
+  //  { title: "Slavkovský štít ", info: "Velmi zaujimava tura", image: "./assets/img.jpg", location: "Vysoké Tatry", point: "Starý Smokovec", info2: "Celodenna tura s moznostou spojit prijemne s uzitocnym", id: 1111 },
+  //  { title: "Krivan ", info: "Narocny stit", image: "http://www.severovychod.sk/content/images/8/8874_full.jpg", location: "Slovenský Raj", point: "Štrbské pleso", id: 2222 },
+  //  { title: "Gerlachovsky stit ", info: "Najvyssi stit", image: "https://ipravda.sk/res/2014/08/12/thumbs/gerlachovsky-stit-clanokW.jpg", location: "Nízke Tatry", point: "Veľká Lesná", id: 3333 }
 
-  ])
-
+  //])
+  mongoose.model("hiking", hikingModel.hikingShema).find().then(data => {
+    res.status(200).json({ data })
+  })
 }
 
 exports.test = (req, res) => {

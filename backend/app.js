@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
-const connectionString = "mongodb+srv://admin:admin@cluster0.smkby.mongodb.net/Hikingapp?retryWrites=true&w=majority";
+const connectionString = "mongodb+srv://admin:" + process.env.dbpass + "@cluster0.smkby.mongodb.net/Hikingapp?retryWrites=true&w=majority";
 
 
 app.use(cors());
