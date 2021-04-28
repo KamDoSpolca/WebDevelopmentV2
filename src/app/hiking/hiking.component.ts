@@ -45,10 +45,17 @@ export class HikingComponent implements OnInit {
       })
   }
 
+  createNewHiking() {
+    this._http.post(environment.backend + '/hiking/add', {})
+      .subscribe((response: any) => {
+        alert("pridane do db")
+
+      })
+  }
 
   onShowAddTheForm() {
-        this.addNewHiking = true;
-    
+    this.addNewHiking = true;
+    this.createNewHiking()
 
   }
 

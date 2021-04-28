@@ -27,3 +27,18 @@ exports.getHikingLocation = (req, res) => {
 
 }
 
+exports.createHiking = (req, res) => {
+  // res.send("ahojte to je nasa super appka")
+  const newHiking = new hikingModel({
+    title: "Kriváň",
+    info: "Vysoký kopec",
+    image: "-----",
+    location: "Tatry",
+    point: "nieco"
+  })
+
+  newHiking.save().then(response => {
+    res.status(200).json({ message:"zaznam ulozeny"})
+
+  })
+}

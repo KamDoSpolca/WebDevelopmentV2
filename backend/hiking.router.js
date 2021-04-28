@@ -8,4 +8,7 @@ router.get("/", controller.test);
 
 router.get("/hiking/location", controller.getHikingLocation);
 
+router.get("/hiking/add", controller.createHiking);
+
+
 module.exports = router;
