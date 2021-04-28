@@ -10,7 +10,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HikingComponent } from './hiking/hiking.component';
-import { AttractionComponent} from './hiking/attraction/attraction.component';
+import { AttractionComponent } from './hiking/attraction/attraction.component';
 
 @NgModule({
   declarations: [
