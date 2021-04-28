@@ -20,6 +20,7 @@ export class HikingComponent implements OnInit {
   ) { }
 
   hiking = [];
+  addNewHiking = false;
 
 
   locationFilter = [
@@ -31,8 +32,8 @@ export class HikingComponent implements OnInit {
   ngOnInit() {
     this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
-        this.filteredHiking = response;
-        this.hiking = response;
+        this.filteredHiking = response.data;
+        this.hiking = response.data;
 
       })
 
@@ -42,6 +43,13 @@ export class HikingComponent implements OnInit {
         this.locationFilter = response;
 
       })
+  }
+
+
+  onShowAddTheForm() {
+        this.addNewHiking = true;
+    
+
   }
 
   locationFilterChange(event) {
