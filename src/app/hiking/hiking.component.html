@@ -8,7 +8,8 @@ HIKING
   </select>
 </div>
 
-<button (click)="onShowAddTheForm()"> Pridat turu
+<button (click)="onShowAddTheForm()">
+  Pridat turu
 
 </button>
 
@@ -18,11 +19,19 @@ HIKING
 <div class="container--content mx-4 ">
 
 
-  <div *ngFor="let item of filteredHiking " class="item" (click)="onOpenAttraction(item._id)">
+  <div *ngFor="let item of filteredHiking " class="item">
 
 
     <div class="attraction-preview p-2">
-      <img src="{{item.image}}" width="250" height="200" style="border-radius:12px" />
+      <img (click)="onOpenAttraction(item._id)" src="{{item.image}}" width="250" height="200" style="border-radius:12px" />
+
+      <button (click)="onDelete(item._id)">
+        delete
+      </button>
+
+      <button (click)="onEdit(item._id)">
+        edit
+      </button>
 
       <div class="describe p-2">
         <h5>{{item.title}} </h5>

@@ -8,7 +8,11 @@ router.get("/", controller.test);
 
 router.get("/hiking/location", controller.getHikingLocation);
 
-router.get("/hiking/add", controller.createHiking);
+router.post("/hiking/add", controller.createHiking);
+
+router.delete("/hiking/delete/:id", controller.deleteHiking);
+
+router.put("/hiking/edit/:id", controller.editHiking);
 
 
 module.exports = router;

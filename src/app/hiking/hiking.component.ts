@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { constants } from 'perf_hooks';
 import { environment } from '../../environments/environment';
 
 
@@ -46,10 +47,27 @@ export class HikingComponent implements OnInit {
   }
 
   createNewHiking() {
+
     this._http.post(environment.backend + '/hiking/add', {})
       .subscribe((response: any) => {
         alert("pridane do db")
 
+      })
+  }
+
+  onDelete(id) {
+
+    this._http.delete(environment.backend + '/hiking/delete/' + id)
+      .subscribe((res: any) => {
+        alert(res.message)
+      })
+  }
+
+  onEdit(id) {
+
+    this._http.put(environment.backend + '/hiking/edit/' + id, {})
+      .subscribe((res: any) => {
+        alert(res.message)
       })
   }
 

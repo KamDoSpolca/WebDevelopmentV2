@@ -38,7 +38,31 @@ exports.createHiking = (req, res) => {
   })
 
   newHiking.save().then(response => {
-    res.status(200).json({ message:"zaznam ulozeny"})
+    res.status(200).json({ message: "zaznam ulozeny" })
 
+  })
+}
+
+
+exports.deleteHiking = (req, res) => {
+  hikingModel.deleteOne({ _id: req.params.id }).then(odpoved => {
+    res.status(200).json({ message: "zaznam zmazany" })
+  })
+}
+
+exports.editHiking = (req, res) => {
+  // res.send("ahojte to je nasa super appka")
+  const newHiking = new hikingModel({
+    title: "XXXXXXX",
+    info: "Vysoký kopec",
+    image: "-----",
+    location: "Tatry",
+    point: "nieco",
+    _id: req.params.id
+  })
+
+  //Mongoose update
+  hikingModel.updateOne({ _id: req.params.id }, newHiking).then(odpoved => {
+    res.status(200).json({ message: "zaznam upraveny" })
   })
 }
