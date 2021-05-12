@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
-import { constants } from 'perf_hooks';
 import { environment } from '../../environments/environment';
 
 
@@ -30,7 +29,9 @@ export class HikingComponent implements OnInit {
 
   filteredHiking = [];
 
+
   ngOnInit() {
+    //call backend from frontend
     this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
         this.filteredHiking = response.data;
@@ -41,7 +42,7 @@ export class HikingComponent implements OnInit {
 
     this._http.get(environment.backend + '/hiking/location')
       .subscribe((response: any) => {
-        this.locationFilter = response;
+        this.locationFilter = response.data;
 
       })
   }
@@ -60,6 +61,7 @@ export class HikingComponent implements OnInit {
     this._http.delete(environment.backend + '/hiking/delete/' + id)
       .subscribe((res: any) => {
         alert(res.message)
+
       })
   }
 

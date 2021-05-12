@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const hikingModel = require("./hiking.model");
+const locationModel = require("./location.model");
 
 
 exports.getHikingList = (req, res) => {
@@ -20,10 +21,16 @@ exports.test = (req, res) => {
 
 
 exports.getHikingLocation = (req, res) => {
-  res.send([
-    "Všetko", "Vysoké Tatry", "Slovenský Raj", "Nízke Tatry"
+  //res.send([
+  //  //"Všetko", "Vysoké Tatry", "Slovenský Raj", "Nízke Tatry"
 
-  ])
+  //])
+
+  mongoose.model("location", locationModel.abc).find().then(data => {
+    res.status(200).json({ data })
+  })
+
+
 
 }
 

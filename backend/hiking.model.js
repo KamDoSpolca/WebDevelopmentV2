@@ -8,4 +8,5 @@ const hikingSchema = mongoose.Schema({
   point: { type: String }
 
 })
+
 module.exports = mongoose.model("hiking", hikingSchema);

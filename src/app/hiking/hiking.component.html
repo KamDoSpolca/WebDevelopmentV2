@@ -4,7 +4,7 @@ HIKING
 
 <div class="filter">
   <select (change)="locationFilterChange($event)">
-    <option *ngFor="let item of locationFilter">{{item}}</option>
+    <option *ngFor="let item of locationFilter">{{item.location}}</option>
   </select>
 </div>
 
