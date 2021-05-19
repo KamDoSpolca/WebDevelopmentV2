@@ -19,6 +19,9 @@ HIKING
   <form [formGroup]="hikingForm">
     <label>Názov túry</label>
     <input formControlName="title" />
+    <label>Miesto</label>
+
+    <input formControlName="location" />
     <button type="submit" (click)="onSubmit()">Uložiť</button>
 
 

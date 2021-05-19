@@ -34,7 +34,8 @@ export class HikingComponent implements OnInit {
 
   ngOnInit() {
     this.hikingForm = this._formBuilder.group({
-      title: new FormControl(null)
+      title: new FormControl(null),
+      location: new FormControl(null)
     })
     //call backend from frontend
     this._http.get(environment.backend + '/hiking/list')
@@ -71,7 +72,7 @@ export class HikingComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(this.hikingForm.value.title)
+    alert(this.hikingForm.value.title+this.hikingForm.value.location)
 
   }
 
