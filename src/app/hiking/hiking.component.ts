@@ -55,7 +55,7 @@ export class HikingComponent implements OnInit {
 
   createNewHiking() {
 
-    this._http.post(environment.backend + '/hiking/add', {})
+    this._http.post(environment.backend + '/hiking/add', {loc:this.hikingForm.value.location})
       .subscribe((response: any) => {
         alert("pridane do db")
 
@@ -73,7 +73,7 @@ export class HikingComponent implements OnInit {
 
   onSubmit() {
     alert(this.hikingForm.value.title+this.hikingForm.value.location)
-
+    this.createNewHiking()
   }
 
   onEdit(id) {
@@ -86,7 +86,7 @@ export class HikingComponent implements OnInit {
 
   onShowAddTheForm() {
     this.addNewHiking = true;
-    this.createNewHiking()
+   
 
   }
 

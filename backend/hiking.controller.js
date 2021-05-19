@@ -37,10 +37,10 @@ exports.getHikingLocation = (req, res) => {
 exports.createHiking = (req, res) => {
   // res.send("ahojte to je nasa super appka")
   const newHiking = new hikingModel({
-    title: "Kriváň",
+    title: req.body.loc,
     info: "Vysoký kopec",
     image: "-----",
-    location: "Tatry",
+    location: req.body.loc,
     point: "nieco"
   })
 
