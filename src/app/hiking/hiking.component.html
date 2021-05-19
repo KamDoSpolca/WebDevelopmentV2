@@ -13,7 +13,19 @@ HIKING
 
 </button>
 
-<div *ngIf="addNewHiking">formular</div>
+
+
+<div *ngIf="addNewHiking">formular
+  <form [formGroup]="hikingForm">
+    <label>Názov túry</label>
+    <input formControlName="title" />
+    <button type="submit" (click)="onSubmit()">Uložiť</button>
+
+
+  </form>
+
+
+  </div>
 
 
 <div class="container--content mx-4 ">

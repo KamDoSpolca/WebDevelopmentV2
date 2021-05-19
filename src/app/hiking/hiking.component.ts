@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
@@ -16,12 +17,13 @@ import { environment } from '../../environments/environment';
 export class HikingComponent implements OnInit {
   constructor(
     private _http: HttpClient,
-    private _router: Router
+    private _router: Router,
+    private _formBuilder: FormBuilder
   ) { }
 
   hiking = [];
   addNewHiking = false;
-
+  hikingForm: FormGroup;
 
   locationFilter = [
 
@@ -31,6 +33,9 @@ export class HikingComponent implements OnInit {
 
 
   ngOnInit() {
+    this.hikingForm = this._formBuilder.group({
+      title: new FormControl(null)
+    })
     //call backend from frontend
     this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
@@ -63,6 +68,11 @@ export class HikingComponent implements OnInit {
         alert(res.message)
 
       })
+  }
+
+  onSubmit() {
+    alert(this.hikingForm.value.title)
+
   }
 
   onEdit(id) {
