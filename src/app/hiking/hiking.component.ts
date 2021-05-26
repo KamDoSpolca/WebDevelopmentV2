@@ -70,9 +70,9 @@ export class HikingComponent implements OnInit {
       info: this.hikingForm.value.info,
       location: this.hikingForm.value.location
     })
-      .subscribe((response: any) => {
+      .subscribe((respondFromBackend: any) => {
         alert("pridane do db")
-        location.reload();  //refresh page
+        this.filteredHiking.push(respondFromBackend.hikingItem)
 
       })
   }
@@ -82,7 +82,9 @@ export class HikingComponent implements OnInit {
     this._http.delete(environment.backend + '/hiking/delete/' + id)
       .subscribe((res: any) => {
         alert(res.message);
-        location.reload();  //refresh page
+        //this.filteredHiking.filter(hiking => hiking._id === res.id).forEach(deleted => )
+        let indexOfDeleted = this.filteredHiking.findIndex(hiking => hiking._id === res.id);
+        this.filteredHiking.splice(indexOfDeleted, 1); //remove according id
 
       })
   }
@@ -106,7 +108,7 @@ export class HikingComponent implements OnInit {
     this._http.put(environment.backend + '/hiking/edit/' + id, {})
       .subscribe((res: any) => {
         alert(res.message);
-        location.reload();  //refresh page
+        /*       location.reload();  //refresh page*/
       })
   }
 

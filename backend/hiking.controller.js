@@ -58,8 +58,9 @@ exports.createHiking = (req, res) => {
     point: req.body.location,
   })
 
-  newHiking.save().then(response => {
-    res.status(200).json({ message: "zaznam ulozeny" })
+
+  newHiking.save().then(dataFromDatabase => {
+    res.status(200).json({ message: "zaznam ulozeny", hikingItem: dataFromDatabase })
 
   })
 }
@@ -67,7 +68,7 @@ exports.createHiking = (req, res) => {
 
 exports.deleteHiking = (req, res) => {
   hikingModel.deleteOne({ _id: req.params.id }).then(odpoved => {
-    res.status(200).json({ message: "zaznam zmazany" })
+    res.status(200).json({ message: "zaznam zmazany", id: req.params.id })
   })
 }
 
