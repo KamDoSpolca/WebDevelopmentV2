@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const hikingModel = require("./hiking.model");
 const locationModel = require("./location.model");
+const infonModel = require("./info.model");
 
 
 exports.getHikingList = (req, res) => {
@@ -10,7 +11,7 @@ exports.getHikingList = (req, res) => {
   //  { title: "Gerlachovsky stit ", info: "Najvyssi stit", image: "https://ipravda.sk/res/2014/08/12/thumbs/gerlachovsky-stit-clanokW.jpg", location: "Nízke Tatry", point: "Veľká Lesná", id: 3333 }
 
   //])
-  mongoose.model("hiking", hikingModel.hikingShema).find().then(data => {
+  mongoose.model("hiking", hikingModel.hikingSchema).find().then(data => {
     res.status(200).json({ data })
   })
 }
@@ -31,17 +32,30 @@ exports.getHikingLocation = (req, res) => {
   })
 
 
+}
+
+
+exports.getHikingInfo = (req, res) => {
+  //res.send([
+  //  //"Všetko", "Vysoké Tatry", "Slovenský Raj", "Nízke Tatry"
+
+  //])
+
+  mongoose.model("info", hikingModel.hikingSchema).find().then(data => {
+    res.status(200).json({ data })
+  })
+
 
 }
 
 exports.createHiking = (req, res) => {
   // res.send("ahojte to je nasa super appka")
   const newHiking = new hikingModel({
-    title: req.body.loc,
-    info: "Vysoký kopec",
+    title: req.body.title,
+    info: req.body.info,
     image: "-----",
-    location: req.body.loc,
-    point: "nieco"
+    location: "-----",
+    point: req.body.location,
   })
 
   newHiking.save().then(response => {
@@ -60,11 +74,11 @@ exports.deleteHiking = (req, res) => {
 exports.editHiking = (req, res) => {
   // res.send("ahojte to je nasa super appka")
   const newHiking = new hikingModel({
-    title: "XXXXXXX",
-    info: "Vysoký kopec",
+    title: "Template",
+    info: "Krasny den straveny...",
     image: "-----",
-    location: "Tatry",
-    point: "nieco",
+    location: "-----",
+    point: "Stary Smokovec",
     _id: req.params.id
   })
 

@@ -1,52 +1,69 @@
-HIKING
 
 
 
-<div class="filter">
-  <select (change)="locationFilterChange($event)">
-    <option *ngFor="let item of locationFilter">{{item.location}}</option>
-  </select>
-</div>
 
-<button (click)="onShowAddTheForm()">
-  Pridat turu
 
-</button>
+<div class="container--content">
 
 
 
-<div *ngIf="addNewHiking">formular
-  <form [formGroup]="hikingForm">
-    <label>Názov túry</label>
-    <input formControlName="title" />
-    <label>Miesto</label>
+  <div class="control--panel">
 
-    <input formControlName="location" />
-    <button type="submit" (click)="onSubmit()">Uložiť</button>
+    <div class="p-2">
+      <select (change)="locationFilterChange($event)" style="height:30px">
+        <option *ngFor="let item of locationFilter">{{item.location}}</option>
+      </select>
+    </div>
+
+    <div class="p-2 ">
+      <input class="form-control" style="height:30px" id="myInput" type="text" placeholder="Search..">
+    </div>
+
+    <div class="p-2 ml-auto ">
+      <button style="height:30px" (click)="onShowAddTheForm()">
+        + add attraction
+      </button>
 
 
-  </form>
-
-
+    </div>
   </div>
 
 
-<div class="container--content mx-4 ">
+
+  <div class="formBuilder p-2 " *ngIf="addNewHiking">
+
+    <form [formGroup]="hikingForm">
 
 
-  <div *ngFor="let item of filteredHiking " class="item">
+      <label>Názov túry</label>
+      <input formControlName="title" />
+      <label>Popis</label>
+      <input formControlName="info" />
+      <label>Miesto</label>
+      <input formControlName="location" />
+      <label>Image</label>
+      <input type="file" formControlName="image" /><br />
+
+
+
+      <button type="submit" (click)="onSubmit()">Uložiť</button>
+      <button type="submit" (click)="cancelSubmit()">Zrušiť</button>
+
+    </form>
+  </div>
+
+
+
+
+
+
+  <div *ngFor="let item of filteredHiking " class="item ">
 
 
     <div class="attraction-preview p-2">
       <img (click)="onOpenAttraction(item._id)" src="{{item.image}}" width="250" height="200" style="border-radius:12px" />
 
-      <button (click)="onDelete(item._id)">
-        delete
-      </button>
 
-      <button (click)="onEdit(item._id)">
-        edit
-      </button>
 
       <div class="describe p-2">
         <h5>{{item.title}} </h5>
@@ -56,6 +73,14 @@ HIKING
           <span>{{item.point}}</span>
         </div>
       </div>
+
+      <button (click)="onDelete(item._id)">
+        delete
+      </button>
+
+      <button (click)="onEdit(item._id)">
+        edit
+      </button>
 
     </div>
 

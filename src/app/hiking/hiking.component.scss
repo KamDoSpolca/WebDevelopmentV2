@@ -1,10 +1,16 @@
 
 .container--content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
 }
 
+.control--panel {
+  background-color: slategray;
+  display: flex;
+  width: 820px;
+  margin: 10px 0;
+}
 
 
 .item {
@@ -14,7 +20,26 @@
 }
 
 
-
 .attraction-preview:hover {
   background-color: darkgray;
+}
+
+.formBuilder {
+  display: flex;
+  width: 820px;
+  justify-content: center;
+  background-color: slategray;
+
+
+
+  input {
+    display: block;
+  }
+}
+
+label {
+  font-family: Calibri;
+  color: antiquewhite;
+  font-size: 16px;
+  font-family: Arial;
 }

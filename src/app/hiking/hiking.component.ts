@@ -8,10 +8,12 @@ import { environment } from '../../environments/environment';
 
 
 
+
 @Component({
   selector: 'tourist-hiking',
   templateUrl: './hiking.component.html',
-  styleUrls: ['./hiking.component.scss']
+  styleUrls: ['./hiking.component.scss'],
+
 })
 
 export class HikingComponent implements OnInit {
@@ -25,19 +27,19 @@ export class HikingComponent implements OnInit {
   addNewHiking = false;
   hikingForm: FormGroup;
 
-  locationFilter = [
-
-  ];
-
+  locationFilter = [];
   filteredHiking = [];
+  infoFilter = [];
 
 
   ngOnInit() {
     this.hikingForm = this._formBuilder.group({
       title: new FormControl(null),
-      location: new FormControl(null)
+      location: new FormControl(null),
+      info: new FormControl(null),
     })
-    //call backend from frontend
+
+    // request data from backend
     this._http.get(environment.backend + '/hiking/list')
       .subscribe((response: any) => {
         this.filteredHiking = response.data;
@@ -45,48 +47,72 @@ export class HikingComponent implements OnInit {
 
       })
 
-
+    // request data from backend
     this._http.get(environment.backend + '/hiking/location')
       .subscribe((response: any) => {
         this.locationFilter = response.data;
 
       })
-  }
 
-  createNewHiking() {
-
-    this._http.post(environment.backend + '/hiking/add', {loc:this.hikingForm.value.location})
+    // request data from backend
+    this._http.get(environment.backend + '/hiking/info')
       .subscribe((response: any) => {
-        alert("pridane do db")
+        this.infoFilter = response.data;
 
       })
   }
 
+  //send data to backend
+  createNewHiking() {
+
+    this._http.post(environment.backend + '/hiking/add', {
+      title: this.hikingForm.value.title,
+      info: this.hikingForm.value.info,
+      location: this.hikingForm.value.location
+    })
+      .subscribe((response: any) => {
+        alert("pridane do db")
+        location.reload();  //refresh page
+
+      })
+  }
+  //delete data on the backend according to "id"
   onDelete(id) {
 
     this._http.delete(environment.backend + '/hiking/delete/' + id)
       .subscribe((res: any) => {
-        alert(res.message)
+        alert(res.message);
+        location.reload();  //refresh page
 
       })
   }
 
+  //call function "createNewHiking", if button pushed
   onSubmit() {
-    alert(this.hikingForm.value.title+this.hikingForm.value.location)
-    this.createNewHiking()
+    alert(this.hikingForm.value.title + this.hikingForm.value.info + this.hikingForm.value.location);
+    this.createNewHiking();
   }
 
+  //cancel form, if button "zrusit" pushed
+  cancelSubmit() {
+
+    this.addNewHiking = false;
+  }
+
+
+  //edit data on the backend according to "id"
   onEdit(id) {
 
     this._http.put(environment.backend + '/hiking/edit/' + id, {})
       .subscribe((res: any) => {
-        alert(res.message)
+        alert(res.message);
+        location.reload();  //refresh page
       })
   }
 
+  //show form, if button "add attraction" pushed 
   onShowAddTheForm() {
     this.addNewHiking = true;
-   
 
   }
 
@@ -98,6 +124,7 @@ export class HikingComponent implements OnInit {
     }
   }
 
+  //navigate for individual attraction
   onOpenAttraction(id) {
     this._router.navigate(["/hiking/", id]);
   }

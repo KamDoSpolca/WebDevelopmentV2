@@ -8,6 +8,8 @@ router.get("/", controller.test);
 
 router.get("/hiking/location", controller.getHikingLocation);
 
+router.get("/hiking/info", controller.getHikingInfo);
+
 router.post("/hiking/add", controller.createHiking);
 
 router.delete("/hiking/delete/:id", controller.deleteHiking);
