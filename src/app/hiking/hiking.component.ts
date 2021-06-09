@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { HikingService } from './hiking.service';
 
 
 
@@ -20,13 +21,14 @@ export class HikingComponent implements OnInit {
   constructor(
     private _http: HttpClient,
     private _router: Router,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _hikingService: HikingService
   ) { }
 
   hiking = [];
   addNewHiking = false;
   hikingForm: FormGroup;
-  @Input() isLogedIn;
+  isLogedIn;
 
   locationFilter = [];
   filteredHiking = [];
@@ -56,6 +58,11 @@ export class HikingComponent implements OnInit {
 
       })
 
+    this.isLogedIn = this._hikingService.getLoggedin()
+
+    setTimeout(() => {
+      this.isLogedIn = this._hikingService.getLoggedin()
+ }, 5000)
   }
 
   //send data to backend

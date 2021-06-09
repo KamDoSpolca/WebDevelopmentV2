@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HikingComponent } from './hiking/hiking.component';
 import { AttractionComponent } from './hiking/attraction/attraction.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HikingService } from './hiking/hiking.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HikingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

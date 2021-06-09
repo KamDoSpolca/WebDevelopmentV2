@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HikingService } from './hiking/hiking.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,20 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class AppComponent {
   title = 'WebDevelopmentV2';
-  @Output() event = new EventEmitter<boolean>();
+
+  constructor(
+    private _hikingService: HikingService
+  ) { }
+
+  // @Output() event = new EventEmitter<boolean>();
   isLogedIn = false;
 
 
 
   logInOut() {
     this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
-    this.event.emit(this.isLogedIn);
+    // this.event.emit(this.isLogedIn);
+    this._hikingService.setLoggedStatus(this.isLogedIn)
   }
 }
+
