@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const hikingModel = require("./hiking.model");
 const locationModel = require("./location.model");
-const infonModel = require("./info.model");
 
 
 exports.getHikingList = (req, res) => {
@@ -36,15 +35,19 @@ exports.getHikingLocation = (req, res) => {
 
 
 exports.getHikingInfo = (req, res) => {
-  //res.send([
-  //  //"Všetko", "Vysoké Tatry", "Slovenský Raj", "Nízke Tatry"
-
-  //])
 
   mongoose.model("info", hikingModel.hikingSchema).find().then(data => {
     res.status(200).json({ data })
   })
 
+}
+
+
+exports.getHikingImage = (req, res) => {
+
+  mongoose.model("image", hikingModel.hikingSchema).find().then(data => {
+    res.status(200).json({ data })
+  })
 
 }
 
@@ -53,7 +56,7 @@ exports.createHiking = (req, res) => {
   const newHiking = new hikingModel({
     title: req.body.title,
     info: req.body.info,
-    image: "-----",
+    image: req.body.image,
     location: "-----",
     point: req.body.location,
   })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'WebDevelopmentV2';
+  @Output() event = new EventEmitter<boolean>();
+  isLogedIn = false;
+
+
+
+  logInOut() {
+    this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
+    this.event.emit(this.isLogedIn);
+  }
 }

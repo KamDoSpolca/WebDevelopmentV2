@@ -20,7 +20,7 @@
     </div>
 
     <div class="p-2 ml-auto ">
-      <button style="height:30px" (click)="onShowAddTheForm()">
+      <button *ngIf="isLogedIn" style="height:30px" (click)="onShowAddTheForm()">
         + add attraction
       </button>
 
@@ -42,7 +42,7 @@
       <label>Miesto</label>
       <input formControlName="location" />
       <label>Image</label>
-      <input type="file" formControlName="image" /><br />
+      <input formControlName="image" /><br />
 
 
 
@@ -61,24 +61,22 @@
 
 
     <div class="attraction-preview p-2">
+
       <img (click)="onOpenAttraction(item._id)" src="{{item.image}}" width="250" height="200" style="border-radius:12px" />
-
-
 
       <div class="describe p-2">
         <h5>{{item.title}} </h5>
         <p>{{item.info}} </p>
-        <div style="display:flex">
-          <img src="https://svgsilh.com/svg/1093167.svg" width="15" height="20">
-          <span>{{item.point}}</span>
-        </div>
+
+        <i class="fa fa-map-marker" aria-hidden="true"> {{item.point}} </i>
+
       </div>
 
-      <button (click)="onDelete(item._id)">
+      <button *ngIf="isLogedIn" (click)="onDelete(item._id)">
         delete
       </button>
 
-      <button (click)="onEdit(item._id)">
+      <button *ngIf="isLogedIn" (click)="onEdit(item._id)">
         edit
       </button>
 

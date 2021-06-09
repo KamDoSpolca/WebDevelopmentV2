@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -26,10 +26,11 @@ export class HikingComponent implements OnInit {
   hiking = [];
   addNewHiking = false;
   hikingForm: FormGroup;
+  @Input() isLogedIn;
 
   locationFilter = [];
   filteredHiking = [];
-  infoFilter = [];
+
 
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class HikingComponent implements OnInit {
       title: new FormControl(null),
       location: new FormControl(null),
       info: new FormControl(null),
+      image: new FormControl(null)
     })
 
     // request data from backend
@@ -54,12 +56,6 @@ export class HikingComponent implements OnInit {
 
       })
 
-    // request data from backend
-    this._http.get(environment.backend + '/hiking/info')
-      .subscribe((response: any) => {
-        this.infoFilter = response.data;
-
-      })
   }
 
   //send data to backend
@@ -68,11 +64,13 @@ export class HikingComponent implements OnInit {
     this._http.post(environment.backend + '/hiking/add', {
       title: this.hikingForm.value.title,
       info: this.hikingForm.value.info,
-      location: this.hikingForm.value.location
+      location: this.hikingForm.value.location,
+      image: this.hikingForm.value.image
     })
       .subscribe((respondFromBackend: any) => {
         alert("pridane do db")
         this.filteredHiking.push(respondFromBackend.hikingItem)
+        this.addNewHiking = false;
 
       })
   }
@@ -85,13 +83,14 @@ export class HikingComponent implements OnInit {
         //this.filteredHiking.filter(hiking => hiking._id === res.id).forEach(deleted => )
         let indexOfDeleted = this.filteredHiking.findIndex(hiking => hiking._id === res.id);
         this.filteredHiking.splice(indexOfDeleted, 1); //remove according id
+        this.addNewHiking = false;
 
       })
   }
 
   //call function "createNewHiking", if button pushed
   onSubmit() {
-    alert(this.hikingForm.value.title + this.hikingForm.value.info + this.hikingForm.value.location);
+    alert(this.hikingForm.value.title + this.hikingForm.value.info + this.hikingForm.value.location + this.hikingForm.value.image);
     this.createNewHiking();
   }
 
@@ -124,6 +123,7 @@ export class HikingComponent implements OnInit {
     if (filter === "Všetko") {
       this.filteredHiking = this.hiking
     }
+
   }
 
   //navigate for individual attraction

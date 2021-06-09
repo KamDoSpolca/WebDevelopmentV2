@@ -9,6 +9,7 @@
       <!--<p class="text showcase-text">"Beda, kto v mori vidí iba vodu, kto nepočuje nemú prírodu, kto v skalách vidí iba skaly." A.Sládkovič</p>-->
       <img class='illustration' src="https://sacr3-files.s3-eu-west-1.amazonaws.com/_processed_/csm_tatry%2520panorama_d95b968157.jpg" alt="Cinque Terre">
 
+
     </div>
 
     <div class="section--menu">
@@ -19,6 +20,15 @@
         <li class="menu--item" routerLink="about" [routerLinkActive]="['active']">About</li>
         <li class="menu--item" routerLink="hiking" [routerLinkActive]="['active']">Hiking</li>
         <li class="menu--item" routerLink="contacts" [routerLinkActive]="['active']">Contacts</li>
+
+        <li>
+
+          <button *ngIf="!isLogedIn" (click)="logInOut()"> Login </button>
+          <button *ngIf="isLogedIn" (click)="logInOut()"> Logout </button>
+
+        </li>
+
+
       </ul>
 
     </div>
