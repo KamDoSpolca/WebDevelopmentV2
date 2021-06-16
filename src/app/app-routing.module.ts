@@ -4,6 +4,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AttractionComponent } from './hiking/attraction/attraction.component';
 import { HikingComponent } from './hiking/hiking.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'not-found', component: NotFoundComponent },
   { path: 'hiking', component: HikingComponent },
   { path: 'hiking/:id', component: AttractionComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
 

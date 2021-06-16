@@ -37,7 +37,12 @@ export class HikingComponent implements OnInit {
 
 
   ngOnInit() {
-    this._authStatusSub = this._hikingService.getAuthStatus().subscribe(value => { this.isLogedIn = value});
+
+    this.isLogedIn = this._hikingService.getIsLogIn();
+    this._authStatusSub = this._hikingService.getAuthStatus()
+      .subscribe(value => {
+        this.isLogedIn = value
+      });
 
     this.hikingForm = this._formBuilder.group({
       title: new FormControl(null),
@@ -61,7 +66,7 @@ export class HikingComponent implements OnInit {
 
       })
 
-       
+
   }
 
   //send data to backend

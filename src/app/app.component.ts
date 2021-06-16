@@ -13,21 +13,5 @@ export class AppComponent {
     private _hikingService: HikingService
   ) { }
 
-  // @Output() event = new EventEmitter<boolean>();
-  isLogedIn = false;
 
-
-
-  logInOut() {
-    this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
-    // this.event.emit(this.isLogedIn);
-
-    if (this.isLogedIn) {
-      this._hikingService.logIn()
-    }
-    else {
-      this._hikingService.logOut()
-
-    }
-  }
 }
