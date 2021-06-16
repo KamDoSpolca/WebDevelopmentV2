@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HikingService } from './hiking.service';
 
@@ -32,10 +33,12 @@ export class HikingComponent implements OnInit {
 
   locationFilter = [];
   filteredHiking = [];
-
+  private _authStatusSub: Subscription;
 
 
   ngOnInit() {
+    this._authStatusSub = this._hikingService.getAuthStatus().subscribe(value => { this.isLogedIn = value});
+
     this.hikingForm = this._formBuilder.group({
       title: new FormControl(null),
       location: new FormControl(null),
@@ -58,11 +61,7 @@ export class HikingComponent implements OnInit {
 
       })
 
-    this.isLogedIn = this._hikingService.getLoggedin()
-
-    setTimeout(() => {
-      this.isLogedIn = this._hikingService.getLoggedin()
- }, 5000)
+       
   }
 
   //send data to backend

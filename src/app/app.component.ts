@@ -21,7 +21,13 @@ export class AppComponent {
   logInOut() {
     this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
     // this.event.emit(this.isLogedIn);
-    this._hikingService.setLoggedStatus(this.isLogedIn)
+
+    if (this.isLogedIn) {
+      this._hikingService.logIn()
+    }
+    else {
+      this._hikingService.logOut()
+
+    }
   }
 }
-
