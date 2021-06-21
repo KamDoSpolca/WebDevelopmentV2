@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { EmailValidator, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { HikingService } from "../hiking/hiking.service";
 
 
@@ -17,8 +18,11 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private _hikingService: HikingService
+    private _hikingService: HikingService,
+    private _formBuilder: FormBuilder
   ) { }
+
+  loginForm: FormGroup;
 
   // @Output() event = new EventEmitter<boolean>();
   isLogedIn;
@@ -26,17 +30,24 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.isLogedIn = this._hikingService.getIsLogIn();
 
+    this.loginForm = this._formBuilder.group({
+      email: new FormControl(null, { validators: Validators.email }),
+      password: new FormControl(null, { validators: [Validators.required, Validators.minLength(4)] })
+
+    })
   }
   logInOut() {
-    this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
-    // this.event.emit(this.isLogedIn);
+    if (this.loginForm.invalid) {
 
-    if (this.isLogedIn) {
-      this._hikingService.logIn()
+      alert("nespravne udaje");
+      return;
     }
-    else {
-      this._hikingService.logOut()
 
-    }
+    this._hikingService.validateUser(this.loginForm.value.email, this.loginForm.value.password);
+
+
+    //this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
+
+
   }
 }

@@ -10,6 +10,8 @@ router.get("/hiking/location", controller.getHikingLocation);
 
 router.post("/hiking/add", controller.createHiking);
 
+router.post("/login", controller.login);
+
 router.delete("/hiking/delete/:id", controller.deleteHiking);
 
 router.put("/hiking/edit/:id", controller.editHiking);

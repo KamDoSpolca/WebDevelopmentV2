@@ -51,6 +51,24 @@ exports.getHikingImage = (req, res) => {
 
 }
 
+exports.login = (req, res) => {
+
+  console.log(req.body.email);
+  console.log(req.body.password);
+
+  hikingModel.findOne({ title: req.body.email }).then(user => {
+    if (user.title === req.body.password) {
+
+      res.status(200).json({ res: true })
+    }
+    else {
+      res.status(200).json({ res: false })
+    }
+  })
+
+
+}
+
 exports.createHiking = (req, res) => {
   // res.send("ahojte to je nasa super appka")
   const newHiking = new hikingModel({

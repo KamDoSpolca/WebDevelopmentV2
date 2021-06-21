@@ -1,2 +1,15 @@
-<button *ngIf="!isLogedIn" (click)="logInOut()"> Login </button>
-<button *ngIf="isLogedIn" (click)="logInOut()"> Logout </button>
+
+
+<form [formGroup]="loginForm">
+
+
+  <label>Email</label>
+  <input type="email" formControlName="email" />
+  <label>Password</label>
+  <input type="password" formControlName="password" />
+
+
+  <button type="submit" *ngIf="!isLogedIn" (click)="logInOut()"> Login </button>
+  <button *ngIf="isLogedIn" (click)="logInOut()"> Logout </button>
+
+</form>
