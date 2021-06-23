@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { Subject } from 'rxjs';
 import { environment } from "../../environments/environment.prod";
 
@@ -10,7 +11,8 @@ export class HikingService {
 
 
   constructor(
-    private _httpClient: HttpClient
+    private _httpClient: HttpClient,
+    private _router: Router
 
   ) { }
 
@@ -40,6 +42,7 @@ export class HikingService {
 
         if (response.res) {
           this.logIn();
+          this._router.navigate(["/hiking"]);
           alert("prihlaseny")
         }
         else {
