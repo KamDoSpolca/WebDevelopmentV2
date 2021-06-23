@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const hikingModel = require("./hiking.model");
 const locationModel = require("./location.model");
+const userModel = require("./user.model");
 
 
 exports.getHikingList = (req, res) => {
@@ -51,13 +52,15 @@ exports.getHikingImage = (req, res) => {
 
 }
 
+//create new Controller
+
 exports.login = (req, res) => {
 
   console.log(req.body.email);
   console.log(req.body.password);
 
-  hikingModel.findOne({ title: req.body.email }).then(user => {
-    if (user.title === req.body.password) {
+  mongoose.model("user", userModel.user).findOne({ email: req.body.email }).then(user => {
+    if (user.password === req.body.password) {
 
       res.status(200).json({ res: true })
     }

@@ -9,7 +9,9 @@
   <input type="password" formControlName="password" />
 
 
-  <button type="submit" *ngIf="!isLogedIn" (click)="logInOut()"> Login </button>
-  <button *ngIf="isLogedIn" (click)="logInOut()"> Logout </button>
+  <button type="submit" *ngIf="!isLogedIn" (click)="logIn()"> Login </button>
+
 
 </form>
+
+<button *ngIf="isLogedIn" (click)="logOut()"> Logout </button>

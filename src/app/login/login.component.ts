@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
     })
   }
-  logInOut() {
+  logIn() {
     if (this.loginForm.invalid) {
 
       alert("nespravne udaje");
@@ -45,9 +45,13 @@ export class LoginComponent implements OnInit {
 
     this._hikingService.validateUser(this.loginForm.value.email, this.loginForm.value.password);
 
+  }
 
-    //this.isLogedIn = !this.isLogedIn; // ! opacna hodnota
 
+
+  logOut() {
+
+    this._hikingService.logOut();
 
   }
 }
