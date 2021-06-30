@@ -30,29 +30,6 @@
 
 
 
-  <div class="formBuilder p-2 " *ngIf="addNewHiking">
-
-    <form [formGroup]="hikingForm">
-
-
-      <label>Názov túry</label>
-      <input formControlName="title" />
-      <label>Popis</label>
-      <input formControlName="info" />
-      <label>Miesto</label>
-      <input formControlName="location" />
-      <label>Image</label>
-      <input formControlName="image" /><br />
-
-
-
-      <button type="submit" (click)="onSubmit()">Uložiť</button>
-      <button type="submit" (click)="cancelSubmit()">Zrušiť</button>
-
-    </form>
-  </div>
-
-
 
 
 

@@ -14,6 +14,7 @@ import { AttractionComponent } from './hiking/attraction/attraction.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HikingService } from './hiking/hiking.service';
 import { LoginComponent } from './login/login.component';
+import { HikingAddComponent } from './hiking/add/add.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     AttractionComponent,
     HikingComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    HikingAddComponent
   ],
   imports: [
     BrowserModule,

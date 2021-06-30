@@ -22,13 +22,13 @@ export class HikingComponent implements OnInit {
   constructor(
     private _http: HttpClient,
     private _router: Router,
-    private _formBuilder: FormBuilder,
+
     private _hikingService: HikingService
   ) { }
 
   hiking = [];
   addNewHiking = false;
-  hikingForm: FormGroup;
+
   isLogedIn;
 
   locationFilter = [];
@@ -44,12 +44,7 @@ export class HikingComponent implements OnInit {
         this.isLogedIn = value
       });
 
-    this.hikingForm = this._formBuilder.group({
-      title: new FormControl(null),
-      location: new FormControl(null),
-      info: new FormControl(null),
-      image: new FormControl(null)
-    })
+
 
     // request data from backend
     this._http.get(environment.backend + '/hiking/list')
@@ -69,22 +64,7 @@ export class HikingComponent implements OnInit {
 
   }
 
-  //send data to backend
-  createNewHiking() {
 
-    this._http.post(environment.backend + '/hiking/add', {
-      title: this.hikingForm.value.title,
-      info: this.hikingForm.value.info,
-      location: this.hikingForm.value.location,
-      image: this.hikingForm.value.image
-    })
-      .subscribe((respondFromBackend: any) => {
-        alert("pridane do db")
-        this.filteredHiking.push(respondFromBackend.hikingItem)
-        this.addNewHiking = false;
-
-      })
-  }
   //delete data on the backend according to "id"
   onDelete(id) {
 
@@ -99,17 +79,7 @@ export class HikingComponent implements OnInit {
       })
   }
 
-  //call function "createNewHiking", if button pushed
-  onSubmit() {
-    alert(this.hikingForm.value.title + this.hikingForm.value.info + this.hikingForm.value.location + this.hikingForm.value.image);
-    this.createNewHiking();
-  }
 
-  //cancel form, if button "zrusit" pushed
-  cancelSubmit() {
-
-    this.addNewHiking = false;
-  }
 
 
   //edit data on the backend according to "id"
@@ -125,6 +95,7 @@ export class HikingComponent implements OnInit {
   //show form, if button "add attraction" pushed 
   onShowAddTheForm() {
     this.addNewHiking = true;
+    this._router.navigate(["/hiking/add"])
 
   }
 

@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './login/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
+import { HikingAddComponent } from './hiking/add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -14,9 +15,11 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'not-found', component: NotFoundComponent },
-  { path: 'hiking', component: HikingComponent, canActivate: [AuthGuard] },
+  { path: 'hiking', component: HikingComponent },
+  { path: 'hiking/add', component: HikingAddComponent, canActivate: [AuthGuard] },
   { path: 'hiking/:id', component: AttractionComponent },
   { path: 'login', component: LoginComponent },
+
   { path: '**', redirectTo: '/not-found' }
 ];
 
